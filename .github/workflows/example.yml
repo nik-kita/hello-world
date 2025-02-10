@@ -1,0 +1,40 @@
+name: example
+
+# Runs daily at 5am PST (1pm UTC)
+on:
+  schedule:
+    - cron:  "0 13 * * *"
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  sysbox_ce_pkg_test:
+    runs-on: [self-hosted, Linux, X64, '${{ matrix.distro }}']
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        distro: [ubuntu-bionic, ubuntu-focal, debian-buster, debian-bullseye]
+    steps:
+      - name: precheckout-cleanup
+        run: |
+          sudo rm -rf *
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: prebuild-cleanup
+        run: |
+          docker stop $(docker ps -aq) || true
+          docker image rm $(docker image ls -aq) || true
+
+      - name: test-hello-world
+        run: |
+          docker run hello-workd
+
+      - name: post-cleanup
+        run: |
+          docker stop $(docker ps -aq) || true
+          docker image rm $(docker image ls -aq) || true

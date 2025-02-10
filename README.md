@@ -11,12 +11,14 @@
   - [Init runner](https://youtu.be/JyEwKm-OfxA?si=NuOFwPX4xg9TVhKJ&t=1797)
   - [Multiple runners example](https://youtu.be/JyEwKm-OfxA?si=l9jXJhi_r1IFO2WP&t=1960)
 
+[example repo from video](https://github.com/nestybox/sysbox-pkgr)
+
 ### Steps to configure runner on some host:
 
 1. clone the repo
 
 ```bash
-https://github.com/docker/github-actions-runner.git
+git clone https://github.com/docker/github-actions-runner.git
 ```
 
 2. init runner
