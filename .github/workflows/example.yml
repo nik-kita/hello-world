@@ -11,17 +11,9 @@ jobs:
   example:
     runs-on: [self-hosted, Linux, X64, ubuntu-latest]
     steps:
-      - name: precheckout-cleanup
+      - name: prebuild
         run: |
-          rm -rf *
-
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: prebuild-cleanup
-        run: |
-          docker stop $(docker ps -aq) || true
-          docker image rm $(docker image ls -aq) || true
+          echo "hi!"
 
       - name: test-hello-world
         run: |
