@@ -9,16 +9,11 @@ defaults:
 
 jobs:
   example:
-    runs-on: [self-hosted, Linux, X64, '${{ matrix.distro }}']
-    strategy:
-      fail-fast: false
-      max-parallel: 2
-      matrix:
-        distro: [ubuntu-bionic, ubuntu-focal, debian-buster, debian-bullseye]
-    steps:
+    runs-on: self-hosted
+        steps:
       - name: precheckout-cleanup
         run: |
-          sudo rm -rf *
+          rm -rf *
 
       - name: checkout
         uses: actions/checkout@v2
