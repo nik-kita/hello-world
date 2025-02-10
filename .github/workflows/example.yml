@@ -1,9 +1,7 @@
 name: example
 
-# Runs daily at 5am PST (1pm UTC)
-on:
-  schedule:
-    - cron:  "0 13 * * *"
+# Runs on-demand
+on: workflow_dispatch
 
 defaults:
   run:
