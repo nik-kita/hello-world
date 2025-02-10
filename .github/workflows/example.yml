@@ -9,7 +9,7 @@ defaults:
 
 jobs:
   example:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X64, ubuntu-latest]
     steps:
       - name: precheckout-cleanup
         run: |
