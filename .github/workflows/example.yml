@@ -9,8 +9,7 @@ defaults:
 
 jobs:
   example:
-    runs-on: self-hosted`
-    # runs-on: [self-hosted, Linux, X64, '${{ matrix.distro }}']
+    runs-on: [self-hosted, Linux, X64, '${{ matrix.distro }}']
     strategy:
       fail-fast: false
       max-parallel: 2
