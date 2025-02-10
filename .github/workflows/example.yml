@@ -10,7 +10,7 @@ defaults:
     shell: bash
 
 jobs:
-  sysbox_ce_pkg_test:
+  example:
     runs-on: self-hosted`
     # runs-on: [self-hosted, Linux, X64, '${{ matrix.distro }}']
     strategy:
