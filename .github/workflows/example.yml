@@ -1,4 +1,4 @@
-name: example
+name: Manual Workflow
 
 # Runs on-demand
 on: workflow_dispatch
@@ -8,18 +8,15 @@ defaults:
     shell: bash
 
 jobs:
-  example:
-    runs-on: self-hosted
+  sysbox_pkg_test:
+    runs-on: [self-hosted, Linux, X64, "${{ matrix.distro }}"]
+    strategy:
+      fail-fast: false
+      matrix:
+        distro: [ubuntu-focal]
     steps:
-      - name: prebuild
+      - name: precheckout-cleanup
         run: |
-          echo "hi!"
-
-      - name: test-hello-world
-        run: |
-          docker run hello-workd
-
-      - name: post-cleanup
-        run: |
-          docker stop $(docker ps -aq) || true
-          docker image rm $(docker image ls -aq) || true
+          sudo rm -rf *
+      - name: checkout
+        uses: actions/checkout@v2
