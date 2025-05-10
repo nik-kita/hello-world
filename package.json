@@ -1,0 +1,30 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "- initial doc source:   [https://docs.docker.com/docker-hub/repos/manage/builds/setup/](https://docs.docker.com/docker-hub/repos/manage/builds/setup/) -",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nik-kita/hello-world.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nik-kita/hello-world/issues"
+  },
+  "homepage": "https://github.com/nik-kita/hello-world#readme",
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.1",
+    "hono": "^4.7.9"
+  }
+}
